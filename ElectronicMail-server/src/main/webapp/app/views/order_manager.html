@@ -1,0 +1,50 @@
+<div class="order_manager" ng-controller="order_manager">
+	<div class="list">
+		<div class="order_info" ng-repeat =" list in data.lists">
+			<div class="order_info_content">
+				<div class="tit">
+					<div class="col-sm-2">
+						<p>订单编号</p>
+					</div>
+					<div class="col-sm-3">
+						<p>订单名称</p>
+					</div>
+					<div class="col-sm-2">
+						<p>订单数量</p>
+					</div>
+					<div class="col-sm-2">
+						<p>订单价格</p>
+					</div>
+					<div class="col-sm-3">
+						<p>订单详情</p>
+					</div>
+				</div>
+				<div ng-repeat="goodlist in list.ordersGoos">
+					<div class="con" >
+						<div class="col-sm-2">
+							{{list.id}}
+						</div>
+						<div class="col-sm-3">
+							{{goodlist.name}}
+						</div>
+						<div class="col-sm-2">
+								x {{goodlist.num}}
+							</div>
+						<div class="col-sm-2">
+							<div class="baby_price">
+								{{goodlist.totalPrice}}
+							</div>
+						</div>
+						<div class="col-sm-3 orderDetail">
+							<p>{{list.consigneeAddress}}</p>
+							<p>{{list.consigneeName}}&nbsp;&nbsp;{{list.consigneeNumber}}<p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pagerWrapper">
+			<pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange()"></pager>
+		</div>
+	</div>
+</div>

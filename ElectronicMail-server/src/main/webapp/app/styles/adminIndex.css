@@ -1,0 +1,124 @@
+/* line 1, ../../app/styles/adminIndex.scss */
+.adminIndex {
+  position: relative;
+  height: 400px;
+}
+/* line 4, ../../app/styles/adminIndex.scss */
+.adminIndex .btnWrap {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+/* line 8, ../../app/styles/adminIndex.scss */
+.adminIndex .btnWrap button {
+  display: block;
+  margin: 40px;
+  width: 210px;
+}
+
+/* line 16, ../../app/styles/adminIndex.scss */
+.adminManager_order ul {
+  margin-left: 100px;
+/*   height: 400px; */
+  overflow: hidden;
+}
+/* line 21, ../../app/styles/adminIndex.scss */
+.adminManager_order li {
+  list-style: none;
+  margin: 20px 0;
+}
+/* line 24, ../../app/styles/adminIndex.scss */
+.adminManager_order li .order_name {
+  vertical-align: middle;
+  width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* line 32, ../../app/styles/adminIndex.scss */
+.adminManager_order li button {
+  padding: 2px 10px;
+}
+
+/* line 38, ../../app/styles/adminIndex.scss */
+.adminManager_goods .addWrap {
+  height: 30px;
+  width: 100%;
+  padding: 20px;
+}
+/* line 43, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list {
+  font-size: 12px;
+/*   margin: 20px; */
+  padding: 20px;
+}
+/* line 48, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list h4 {
+  margin-left: 10px;
+}
+.adminManager_goods .good_list .adminGoodsList_catalog{
+  margin-top: 10px
+}
+/* line 51, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list .adminGoodsList_catalog_con{
+  height: 300px;
+  padding-top: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  overflow: auto;
+}
+.adminManager_goods .good_list .adminGoodsList_catalog li{
+    width: inherit;
+    height: 40px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 10px;
+    list-style: none;
+    margin-left: 50px;
+    cursor: pointer;
+    letter-spacing: 10px;
+}
+.adminManager_goods .good_list .adminGoodsList_catalog li.active{
+  color: #fff;
+  background-color:#cfb9e0; 
+}
+.adminManager_goods .good_list .adminGoodsList_catalog_con li{
+  display: inline-block;
+  margin: 15px;
+}
+/* line 54, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list li .good_img {
+  border: 1px solid #eee;
+  width: 100px;
+  height: 120px;
+}
+/* line 58, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list li .good_img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* line 64, ../../app/styles/adminIndex.scss */
+.adminManager_goods .good_list li .good_name {
+    font-size: 12px;
+    margin: 5px 0;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+ .return{
+    margin: 20px 10px;
+    font-size: 18px;
+    color: rgba(0, 188, 212, 0.53);
+ }
+ul.good_list{
+     height:auto;
+     display: inline-block;
+ }
+ li.order_list_index{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+ }

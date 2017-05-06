@@ -1,0 +1,32 @@
+
+<div class="loginWrapper">
+	<div class="login" >
+		<h2>登录</h2>
+		<form name="signUpForm" ng-submit="loginSubmit()">
+			<div class="form-group">
+			    <div class="input-group">
+			      <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+			      <input type="text" id="id" name="id" ng-model="loginData.id" class="form-control" placeholder="用户名">
+			    </div>
+			    <p class="error" ng-if="idTip">{{idErr}}</p>
+			 </div>
+			
+			<div class="form-group">
+			    <div class="input-group">
+			      <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+			      <input type="password" id="pwd" ng-model="loginData.pwd" name="pwd" class="form-control" placeholder="密码">
+			    </div>
+			      <p class="error" ng-if="pwdTip">{{pwdErr}}</p>
+			</div>
+			 
+			<button type="submit" class="btn btn-primary form-control" >登录</button>
+		</form> 
+		
+		<div class="floatR">
+			<a class="findPass" ui-sref="changePass">忘记密码</a>
+			<a class="registerPort" ui-sref="register">免费注册</a>
+			<a ui-sref="adminLogin">管理员登录</a>
+		</div>
+		
+	</div>
+</div>

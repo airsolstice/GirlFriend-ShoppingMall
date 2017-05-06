@@ -1,0 +1,25 @@
+<div class="adminManager_order" ng-controller="adminManager_order">
+	<div class="toIndex">
+		<a  ui-sref="adminIndex">管理员首页</a><span>--订单管理</span>
+	</div>
+	<div class="order_list">
+		<ul>
+			<li class="order_list_index" ng-repeat="order in data.lists" >
+				<span class="order_no">订单{{order.id}} : </span>
+				<div>
+					<ul class="good_list">
+						<li class="order_name" ng-repeat="good in order.ordersGoos">
+							<span>{{good.name}}</span>
+							<span>{{good.num}}</span>
+						</li>
+					</ul>
+				</div>
+				<button class="btn btn-primary" ng-click="delOrder(order,$index)">删除此订单</button>
+			</li>
+
+		</ul>	
+		<div class="pagerWrap">
+			<pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange()"></pager>
+		</div>	
+	</div>
+</div>

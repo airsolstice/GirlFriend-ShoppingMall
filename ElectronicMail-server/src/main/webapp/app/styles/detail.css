@@ -1,0 +1,100 @@
+/* line 1, ../../app/styles/detail.scss */
+.shop_detail {
+  height: 450px;
+  margin: 60px 60px 200px 60px;
+}
+/* line 4, ../../app/styles/detail.scss */
+.shop_detail .big_img {
+  float: left;
+  width: 35%;
+  height: inherit;
+  border: 1px solid #ccc;
+}
+/* line 9, ../../app/styles/detail.scss */
+.shop_detail .big_img img {
+  width: 100%;
+}
+/* line 13, ../../app/styles/detail.scss */
+.shop_detail .small_img {
+  float: left;
+  width: 15%;
+  height: inherit;
+}
+/* line 17, ../../app/styles/detail.scss */
+.shop_detail .small_img ul {
+  margin: 0 20px;
+}
+/* line 19, ../../app/styles/detail.scss */
+.shop_detail .small_img ul li {
+  margin-bottom: 30px;
+  height: 130px;
+  border: 1px solid #ccc;
+  list-style: none;
+}
+/* line 24, ../../app/styles/detail.scss */
+.shop_detail .small_img ul li img {
+  width: 100%;
+  height: 100%;
+}
+/* line 29, ../../app/styles/detail.scss */
+.shop_detail .small_img ul li:last-child {
+  margin-bottom: 0;
+}
+/* line 34, ../../app/styles/detail.scss */
+.shop_detail .shop_info {
+  float: left;
+  width: 50%;
+  height: inherit;
+  padding: 0 80px;
+}
+/* line 39, ../../app/styles/detail.scss */
+.shop_detail .shop_info p {
+  color: #818181;
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 24px;
+}
+/* line 45, ../../app/styles/detail.scss */
+.shop_detail .shop_info .price {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 29px;
+  color: #f15467;
+}
+/* line 52, ../../app/styles/detail.scss */
+.shop_detail .shop_info h3 {
+  font-size: 24px;
+  color: #363636;
+  padding: 5px 0 8px;
+}
+.shop_detail .shop_info h4 {
+  color: rgb(207, 185, 224);
+}
+/* line 57, ../../app/styles/detail.scss */
+.shop_detail .shop_info button {
+  height: 40px;
+  letter-spacing: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.shop_detail .shop_info button.buyCart{
+  width: 240px;
+  background-color: #cfb9e0;
+  color: #fff;
+  border: none;
+  display: inline-block;
+}
+.shop_detail .shop_info button.buyNow{
+  display: inline-block;
+  width: 160px;
+  background-color: #fff;
+  color:  #cfb9e0;
+  border: 2px solid #cfb9e0;
+  margin-right: 20px;
+}
+/* line 67, ../../app/styles/detail.scss */
+.shop_detail .shop_info .shop_service {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+}

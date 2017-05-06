@@ -1,0 +1,181 @@
+<div ng-controller="MainCtrl_new_shopping">
+	<!-- 轮播区 -->
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+	    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+	    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+	  </ol>
+
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner" role="listbox">
+	 	<div class="item active">
+		      <img src="images/goods/1.jpg" alt="...">
+		      <div class="carousel-caption">
+		        ...
+		      </div>
+	    </div>
+	    <div class="item">
+	      <img src="images/goods/4.jpg" alt="...">
+	      <div class="carousel-caption">
+	        ...
+	      </div>
+	    </div>
+	    <div class="item">
+	      <img src="images/goods/14.jpg" alt="...">
+	      <div class="carousel-caption">
+	        ...
+	      </div>
+	    </div>
+	  </div>
+
+	  <!-- Controls -->
+	  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+<!-- 推荐区 -->
+	<div class="recommend">
+		<div class="clothes">
+			<a>
+				<img src="images/banner/7.jpg" usemap="#Map">
+				<map name="#Map">
+					<area shape="rect" coords="0,0,550,852" ui-sref="main.shop_fashion"  ng-click="changeCatalog(1,3)">
+					<area shape="rect" coords="551,0,1100,852"  ui-sref="main.shop_fashion" ng-click="changeCatalog(1,3)">
+				</map>
+			</a>
+			<a ui-sref="main.shop_fashion" ng-click="changeCatalog(1,3)"><img src="images/banner/11.jpg"></a>
+		</div>
+		
+		<div class="maekup">
+			<a ui-sref="main.shop_makeup" ng-click="changeCatalog(1,1)"><img src="images/banner/4.png"></a>
+		</div>
+	</div>
+<!-- 热销区 -->
+	<div class="hot_sale">
+		<div class="col-md-7 content-lgrid">
+			<div class="col-sm-6 content-img-left text-center">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="images/list_recomend_1/1.jpg" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+										<h4>Mascara</h4>
+										<span class="separator"></span>
+										<p><span class="item_price">￥279</span></p>
+										<span class="separator"></span>
+										<a class="item_add hvr-outline-out button2" ui-sref="main.shop_makeup" ng-click="changeCatalog(1,1)">More makeup </a>
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="col-sm-6 content-img-right">
+				<h3>Special Offers and 50%<span>Discount On</span> Mobiles</h3>
+			</div>
+			
+			<div class="col-sm-6 content-img-right">
+				<h3>Buy 1 get 1  free on <span> Branded</span> Watches</h3>
+			</div>
+			<div class="col-sm-6 content-img-left text-center">
+				<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="images/list_recomend_4/2.jpg" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+								<h4>Watches</h4>
+								<span class="separator"></span>
+								<p><span class="item_price">￥250</span></p>
+								<span class="separator"></span>
+								<a class="item_add hvr-outline-out button2" ui-sref="main.shop_accesory" ng-click="changeCatalog(1,4)">More accesory</a>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5 content-rgrid text-center">
+			<div class="content-grid-effect slow-zoom vertical">
+					<div class="img-box"><img src="images/list_recomend_3/15.jpg" alt="image" class="img-responsive zoom-img"></div>
+						<div class="info-box">
+							<div class="info-content simpleCart_shelfItem">
+										<h4>Shoes</h4>
+										<span class="separator"></span>
+										<p><span class="item_price">￥346</span></p>
+										<span class="separator"></span>
+										<a class="item_add hvr-outline-out button2" ui-sref="main.shop_fashion" ng-click="changeCatalog(1,3)">More fashion </a>
+							</div>
+						</div>
+				</div>
+		</div>
+	</div>
+<!-- 新品区 -->
+	<div id="New_shopping" class="new_shopping" >
+		<div class="tab_name"><span>新品专场</span></div>
+		
+		<div class="new_shopping_list">
+			<div class="tab_title">
+				<ul>
+					<li ng-class="{'active' : data.current == 5 }" ng-click="setCurrent(5)"><span>少女的家居</span></li>
+					<li ng-class="{'active' : data.current == 2 }" ng-click="setCurrent(2)"><span>大补“水”</span></li>
+					<li ng-class="{'active' : data.current == 1 }" ng-click="setCurrent(1)"><span>彩妆小可爱</span></li>
+				</ul>
+			</div>
+			<div class="tab_content">
+				<ul ng-if="data.current == 5">
+					<li class="goodList" ng-repeat = "item in new_goods">
+						<div   ng-click="toDetail(item)">
+							<div class="good_img">
+								<a><img src={{item.url[0]}}></a>
+							</div>
+							<h3 class="good_desc">
+								<a>
+									{{item.detail}}
+								</a>
+							</h3>
+							<div class="good_price">
+								<span class="now">￥ {{item.price}}</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul ng-if="data.current == 2">
+					<li class="goodList" ng-repeat = "item in new_goods">
+						<div   ng-click="toDetail(item)">
+							<div class="good_img">
+								<a><img src={{item.url[0]}}></a>
+							</div>
+							<h3 class="good_desc">
+								<a>
+									{{item.detail}}
+								</a>
+							</h3>
+							<div class="good_price">
+								<span class="now">￥ {{item.price}}</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+				<ul ng-if="data.current == 1">
+					<li class="goodList" ng-repeat = "item in new_goods">
+						<div   ng-click="toDetail(item)">
+							<div class="good_img">
+								<a><img src={{item.url[0]}}></a>
+							</div>
+							<h3 class="good_desc">
+								<a>
+									{{item.detail}}
+								</a>
+							</h3>
+							<div class="good_price">
+								<span class="now">￥ {{item.price}}</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

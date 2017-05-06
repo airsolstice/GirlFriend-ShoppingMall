@@ -1,0 +1,24 @@
+
+<div class="banner" ng-controller="MainCtrl_new_shopping">
+<!-- 搜索区 -->
+	<div class="searchWrap">
+		<div class="input-group search">
+				<input type="text" name="search" ng-model="searchKey" class="form-control" placeholder="搜索">
+				<div ng-click="searchGoods()" class="input-group-addon"><i  class="glyphicon glyphicon-search"></i></div>
+		</div>
+	</div>
+<!-- 导航区 -->
+	<div class="nav_bar">
+		<ul>
+			<li ui-sref-active="active_shop"   ui-sref="main.main_index">首页</li>
+			<li ui-sref-active="active_shop"  ng-click="changeCatalog(1,1)"  ui-sref="main.shop_makeup">美妆</li>
+			<li ui-sref-active="active_shop"  ng-click="changeCatalog(1,2)"  ui-sref="main.shop_hufu">护肤</li>
+			<li ui-sref-active="active_shop"  ng-click="changeCatalog(1,3)"  ui-sref="main.shop_fashion">时尚</li>
+			<li ui-sref-active="active_shop"  ng-click="changeCatalog(1,4)"  ui-sref="main.shop_accesory">配饰</li>
+			<li ui-sref-active="active_shop"  ng-click="changeCatalog(1,5)"  ui-sref="main.shop_home">家居</li>
+		</ul>
+	</div>
+	<section ui-view></section>
+
+	
+</div>

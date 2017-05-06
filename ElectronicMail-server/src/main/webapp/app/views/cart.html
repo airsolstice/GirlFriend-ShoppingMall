@@ -1,0 +1,42 @@
+<div class="cart" ng-controller="cart">
+<h3>我的购物车</h3>
+	<div ng-if="cartEmpty">  
+		  <h1>纳尼，购物车空啦！快去加点东西吧。。。。</h1>	  	
+	</div>
+	<div  ng-hide="cartEmpty">
+		<table class="table">
+		  <thead>
+		  	<tr>
+		  		<th><label><input type="checkbox" ng-click="checkAll()"  ng-model="all" class="check-all check">&nbsp;全选</label></th>
+		  		<th>商品</th>
+		  		<th>单价</th>
+		  		<th>数量</th>
+		  		<th>小计</th>
+		  		<th>操作</th>
+		  	</tr>
+		  </thead>
+		  <tbody>
+		  	<tr ng-repeat="cart_good in cart_lists">
+	            <td class="cart_checkbox"><input  ng-model="cart_good.check"  ng-checked="all" class="check-one check" type="checkbox"/></td>
+	            <td class="cart_goods"><img src={{cart_good.url[0]}} alt="商品图片"/><span>{{cart_good.name}}</span></td>
+	            <td class="cart_price">{{cart_good.price}}</td>
+	            <td class="cart_count">
+	                <span class="count_reduce" ng-click="reduce($index)">-</span>
+	                <input class="count-input" type="number" ng-model="cart_good.num"/>
+	                <span class="count_add" ng-click="add($index)">+</span>
+	            </td>
+	            <td class="subtotal">{{cart_good.totalPrice}}</td>
+	            <td class="operation"><span class="delete" ng-click="deleteCart(cart_good,$index)">删除</span></td>
+	        </tr>
+		  </tbody>
+		</table>
+		<div class="cart_foot" ng-hide="cartEmpty">
+			<span class="select_all_foot"><input type="checkbox" ng-click="checkAll()"  ng-model="all" class="check-all check">&nbsp;全选</span>
+			<span class="delete_delected" ng-click="deleteCheckedAll()">删除选中商品</span>
+			<span class="selected_account">已选商品&nbsp;<i class="total_amount_foot">{{checkedNum}}</i>&nbsp;件</span>
+			<span class="select_total">合计￥&nbsp;<i class="total_price_foot">{{sumTotal}}</i></span>
+			<span class="price_all" ng-click="sum()">结算</span>
+		</div>
+	</div>
+
+</div>

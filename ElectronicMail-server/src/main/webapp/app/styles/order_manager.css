@@ -1,0 +1,79 @@
+/* line 1, ../../app/styles/order_manager.scss */
+.order_manager {
+  margin: 60px 100px;
+}
+/* line 3, ../../app/styles/order_manager.scss */
+.order_manager .order_info {
+  padding: 30px;
+}
+/* line 8, ../../app/styles/order_manager.scss */
+.order_manager .order_info .title {
+  margin-bottom: 50px;
+}
+/* line 12, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .tit {
+  height: 30px;
+  text-align: center;
+  border-bottom: 2px solid rgba(45, 167, 224, 0.35);
+}
+/* line 16, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .tit p {
+  margin-bottom: 0;
+  color: rgba(45, 167, 224, 0.35);
+  font-size: 20px;
+  font-weight: 600;
+}
+/* line 24, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .col-sm-2, .order_manager .order_info .order_info_content .con .col-sm-3 {
+     text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0;
+}
+.order_manager .order_info .order_info_content .con{
+  min-height: 100px;
+  overflow: auto
+}
+.order_manager .order_info_content .con:not(:first-child) .col-sm-3.orderDetail {
+  visibility: hidden;
+}
+/* line 30, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .baby_desc {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #818181;
+}
+/* line 36, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .baby_price {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FF6666;
+}
+/* line 41, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .baby_status {
+  text-decoration: underline;
+}
+/* line 44, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .baby_status.success {
+  color: #4CAF50;
+}
+/* line 47, ../../app/styles/order_manager.scss */
+.order_manager .order_info .order_info_content .con .baby_status.unfinished {
+  color: #5FB1E2;
+}
+/* line 52, ../../app/styles/order_manager.scss */
+.order_manager .order_info .btn-confirm {
+  text-decoration: none;
+  background-color: #cfb9e0;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+/* .order_info .order_info_content .con .orderDetail{
+  opacity: 0
+} */
+.order_info .order_info_content .con:not(':first-child') .col-sm-3.orderDetail{
+  opacity: 0
+}

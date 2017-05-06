@@ -1,0 +1,106 @@
+.cart{
+    padding: 30px 60px 20px 40px;
+}
+.cart h3{
+    margin-bottom: 30px;
+    color: #f15467;
+    font-weight: bold;
+}
+.cart h1{
+    color: #ccc;
+    margin-left: 200px;
+    margin-top: 100px;
+}
+.cart table tbody tr:last-child{
+    border-bottom: 1px solid #eee;
+}
+.cart table thead tr th,.cart table tbody tr td{
+    text-align: center;
+}
+.cart table tbody tr td{
+    height: 100px;
+    line-height: 100px;
+}.cart table tbody tr:hover{
+    background-color: rgb(238,246,255);
+}
+.cart table thead tr th input[type='checkbox']{
+    vertical-align: top;
+}
+.cart table tbody tr td img{
+    width: 100px;
+    height: 100px;
+}
+.cart table tbody tr td.cart_goods{
+    text-align: left;
+    padding-left: 50px;
+}
+.cart table tbody tr td.cart_count input{
+    height: 30px;
+    width: 50px;
+    text-align: center;
+}
+.cart table tbody tr td.subtotal{
+    color: #f15467;
+    font-size: 16px;
+    font-weight: bold;
+}
+.cart table tbody tr td.operation{
+    cursor: pointer;
+    outline: none;
+}
+.cart table tbody tr td .count_reduce,.cart table tbody tr td .count_add{
+    cursor: pointer;
+    outline: none;
+    height: 30px;
+    line-height: 30px;
+    width: 20px;
+    background: #f1f1f1;
+    display: inline-block;
+}
+.cart .cart_foot{
+    height: 48px;
+    background-color: #eaeaea;
+    border: 1px solid #c8c8c8;
+    background-image: linear-gradient(RGB(241,241,241),RGB(226,226,226));
+    border-right: none;
+    border-left: none;
+    margin-top: 10px;
+}
+.cart .cart_foot span{
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+}
+.cart .cart_foot span i{
+    font-style: normal;
+    color: #f15467;
+    font-size: 16px;
+    font-weight: bold;
+}
+.cart .cart_foot span.select_all_foot{
+    width: 130px;
+}
+.cart .cart_foot span.select_all_foot input{
+    vertical-align: text-bottom;
+}
+.cart .cart_foot span.delete_delected{
+    width: 702px;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+.cart .cart_foot span.selected_account{
+    width: 142px;
+}
+.cart .cart_foot span.select_total{
+    width: 164px;
+}
+.cart .cart_foot span.price_all{
+    width: 95px;
+    height: 47px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-top: none; 
+}

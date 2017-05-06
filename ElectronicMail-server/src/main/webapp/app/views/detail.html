@@ -1,0 +1,43 @@
+
+<!-- 	商品详情区 -->
+<div class="shop_detail" ng-controller="detail">
+	
+	<div ng-if="data.currentImg == 1" class="big_img">
+		<img src={{good.url[0]}}>
+	</div>
+	<div ng-if="data.currentImg == 2" class="big_img">
+		<img src={{good.url[1]}}>
+	</div>
+	<div ng-if="data.currentImg == 3" class="big_img">
+		<img src={{good.url[2]}}>
+	</div>
+	<div class="small_img">
+		<ul>
+			<li ng-click="changeBigImg(1)"><img src={{good.url[0]}}></li>
+			<li ng-click="changeBigImg(2)"><img src={{good.url[1]}}></li>
+			<li ng-click="changeBigImg(3)"><img src={{good.url[2]}}></li>
+		</ul>
+	</div>
+	<div class="shop_info">
+		<h3>商品详情</h3>
+		<h4>{{good.name}}</h4>
+		<p>
+			{{good.detail}}
+		</p>
+		<h1 class="price">
+			￥ {{good.price}}
+		</h1>
+		<div class="buyBtn">
+			<button class="buyNow"  ng-click="buyNow()" >立即购买</button>
+			<button class="buyCart" ng-click="buyCart()">加入购物车</button>
+		</div>
+		<div class="shop_service" >
+			<h3>商品服务</h3>
+			<p>- 女盆友闪电发货</p>	
+			<p>- 包邮</p>
+			<p>- 30天退货</p>
+		</div>
+	</div>
+	
+</div>
+

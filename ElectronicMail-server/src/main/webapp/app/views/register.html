@@ -1,0 +1,55 @@
+<div class="signUpWrapper" ng-controller="signUpController">
+	<div class="signUp">
+		<h2>注册</h2>
+		<form name="signUpForm" ng-submit="signUpSubmit()">
+			<div class="form-group">
+					<label>账号：</label>
+					<input  type="email" 
+					   name="account" 
+					   ng-model="userdata.id"
+					   placeholder="请输入有效的邮箱"
+					   class="form-control"
+					   ng-minlength="4"
+					   ng-maxlength="32"
+					   required>
+					 <p class="error" ng-if="signUpForm.account.$invalid&&signUpForm.account.$touched">邮箱格式不正确</p>
+					 <p class="error" ng-if="signUpForm.account.$error.required&&signUpForm.account.$touched">账号不能为空</p>
+			</div>
+			<div class="form-group">
+					<label>昵称：</label>
+					<input  type="text" 
+					   name="username" 
+					   ng-model="userdata.name"
+					   class="form-control"
+					   ng-minlength="4"
+					   ng-maxlength="32"
+					   required>
+					 <p class="error" ng-if="(signUpForm.username.$error.minlength||signUpForm.username.$error.maxlength)&&signUpForm.username.$touched">长度在4-32位之间</p>
+					 <p class="error" ng-if="signUpForm.username.$error.required&&signUpForm.username.$touched">用户名不能为空</p>
+			</div>
+			<div class="form-group">
+					<label>输入密码:</label>
+					<input type="password" 
+					   name="password"
+					   ng-model="userdata.pwd" 
+					   required
+					   ng-minlength='6'
+					   ng-maxlength='20' 
+					   class="form-control">
+					<p class="error" ng-if="(signUpForm.password.$error.minlength||signUpForm.password.$error.maxlength)&&signUpForm.password.$touched">长度在6-30位之间</p>		   
+					<p class="error" ng-if="signUpForm.password.$error.required&&signUpForm.password.$touched"">密码不能为空</p>
+			</div>
+			<div class="form-group">
+					<label>确认密码:</label>
+					<input type="password" 
+					   name="password2" 
+					   required
+					   ng-model="pwd2"
+					   compare="userdata.pwd" 
+					   class="form-control">
+					<p class="error" ng-if="signUpForm.password2.$error.compare&&signUpForm.password2.$touched"">两次密码输入不一致</p>
+			</div>
+			<button type="submit" class="btn btn-primary form-control">提交</button>
+		</form>
+	</div>
+</div>

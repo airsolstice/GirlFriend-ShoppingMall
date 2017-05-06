@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* line 1, ../../app/styles/common.scss */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 5, ../../app/styles/common.scss */
+.header {
+  height: 80px;
+}
+/* line 7, ../../app/styles/common.scss */
+.header a {
+  text-decoration: none;
+}
+/* line 10, ../../app/styles/common.scss */
+.header ul {
+  height: 80px;
+  border: none;
+}
+/* line 13, ../../app/styles/common.scss */
+.header ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 0  20px;
+  border-box: border-box;
+  line-height: 80px;
+  height: 80px;
+}
+/* line 23, ../../app/styles/common.scss */
+.header .logo {
+  line-height: 80px;
+  font-size: 28px;
+  float: left;
+  margin-left: 20px;
+  font-family: "微软雅黑";
+}
+/* line 28, ../../app/styles/common.scss */
+.header .logo a {
+  color: #cfb9e0;
+}
+/* line 33, ../../app/styles/common.scss */
+.header .navbar {
+  margin-right: 100px;
+}
+/* line 36, ../../app/styles/common.scss */
+.header .active a {
+  color: #FCA1A1;
+}
+
+/* line 40, ../../app/styles/common.scss */
+.floatR {
+  float: right;
+}
+
+/* line 43, ../../app/styles/common.scss */
+.content-area {
+    min-height: 400px;
+    overflow: auto;
+    width: 100%;
+}
+
+/* line 46, ../../app/styles/common.scss */
+.footer {
+  margin-top: 100px;
+  height: 70px;
+  padding-top: 10px;
+  color: #706c6c;
+  border-top: 1px solid #e5e5e5;
+  background-color: #1f1f1f;
+}
+/* line 53, ../../app/styles/common.scss */
+.footer p {
+  float: right;
+}
+
+/* line 57, ../../app/styles/common.scss */
+.contactWrap {
+  width: 100%;
+  position: relative;
+  height: 450px;
+  margin: 0 auto;
+}
+/* line 62, ../../app/styles/common.scss */
+.contactWrap img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -200px;
+  left: 40%;
+  height: 400px;
+}
+
+/* line 72, ../../app/styles/common.scss */
+.aboutWrap {
+  margin: 100px;
+  border-radius: 4px;
+}
+/* line 75, ../../app/styles/common.scss */
+.aboutWrap h3 {
+  letter-spacing: 3px;
+}
+
+/* line 79, ../../app/styles/common.scss */
+.active_shop {
+  background-color: #cfb9e0;
+  color: #fff;
+}

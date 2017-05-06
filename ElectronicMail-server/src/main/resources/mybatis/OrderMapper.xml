@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solstice.mapper.OrderMapper">
+
+	<!-- 創建订单 -->
+	<insert id="saveOrder" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.solstice.bean.OrderDto">
+		INSERT INTO shop_order
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null and userId!=''">
+				user_id,
+			</if>
+			<if test="goodsNum != null">
+				goods_num,
+			</if>
+			<if test="totalPrice != null">
+				total_price,
+			</if>
+			<if test="consigneeName != null and consigneeName!=''">
+				consignee_name,
+			</if>
+			<if test="consigneeAddress != null and consigneeAddress !=''">
+				consignee_address,
+			</if>
+			<if test="consigneeNumber != null">
+				consignee_number,
+			</if>
+			create_time,
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null and userId!=''">
+			#{userId},
+			</if>
+			<if test="goodsNum != null">
+			#{goodsNum},
+			</if>
+			<if test="totalPrice != null">
+			#{totalPrice},
+			</if>
+			<if test="consigneeName != null and consigneeName!=''">
+			#{consigneeName},
+			</if>
+			<if test="consigneeAddress != null and consigneeAddress !=''">
+			#{consigneeAddress},
+			</if>
+			<if test="consigneeNumber != null">
+			#{consigneeNumber},
+			</if>
+			now(),
+		</trim>
+	</insert>
+
+
+	<!-- 創建組件屬性 -->
+	<insert id="saveGoodsOrder" parameterType="java.util.List">
+		INSERT INTO
+		shop_order_detail(goods_id,order_id,user_id,num,total_price,create_time)
+		VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(#{item.goodsId},#{item.orderId},#{item.userId},#{item.num},#{item.totalPrice},now())
+		</foreach>
+	</insert>
+
+
+	<!-- 获取订单 -->
+	<select id="getOrders" parameterType="com.solstice.bean.OrderDto"
+		resultType="com.solstice.bean.Order2">
+		SELECT
+		id AS id,
+		user_id AS userId,
+		goods_num AS goodsNum,
+		total_price AS
+		totalPrice,
+		consignee_name AS consigneeName,
+		consignee_address AS
+		consigneeAddress,
+		consignee_number AS consigneeNumber,
+		date_format(create_time, '%Y-%m-%d %T') AS createTime
+		FROM
+		shop_order
+		WHERE
+		1=1
+		<if test="userId!=null and userId!=''">
+		and	user_id =#{userId}
+		</if>
+		<if test="userId==null or userId==''">
+		and	1=0
+		</if>
+		<if test="start != null and start >= 0">
+			LIMIT ${start}, ${rows}
+		</if>
+	</select>
+
+
+	<!-- 获取所有订单 -->
+	<select id="getAllOrders" parameterType="com.solstice.bean.OrderDto"
+		resultType="com.solstice.bean.Order2">
+		SELECT
+		id AS id,
+		user_id AS userId,
+		goods_num AS goodsNum,
+		total_price AS
+		totalPrice,
+		consignee_name AS consigneeName,
+		consignee_address AS
+		consigneeAddress,
+		consignee_number AS consigneeNumber,
+		date_format(create_time, '%Y-%m-%d %T') AS createTime
+		FROM
+		shop_order
+		WHERE
+		1=1
+		<if test="start != null and start >= 0">
+			LIMIT ${start}, ${rows}
+		</if>
+	</select>
+
+
+
+	<!-- 获取订单 -->
+	<select id="getGoodsOrders" parameterType="com.solstice.bean.OrderGoodsDto"
+		resultType="com.solstice.bean.OrderGoods">
+		SELECT
+		sot.goods_id AS goodsId,
+		sot.order_id AS orderId,
+		sot.num AS num,
+		sot.total_price AS totalPrice,
+		tg.`name` AS `name`,
+		tg.detail AS detail,
+		tg.price AS price,
+		tg.url AS url
+		FROM
+		shop_order_detail sot
+		LEFT OUTER JOIN tb_goods tg ON sot.goods_id = tg.id
+		WHERE
+		1=1
+		<if test="orderId!=null and orderId!=''">
+			and	sot.order_id =#{orderId}
+		</if>
+		<if test="orderId==null or orderId==''">
+		and	1=0
+		</if>
+	</select>
+	
+	
+	<!-- 获取订单 -->
+	<select id="getOrdersCount" parameterType="com.solstice.bean.OrderDto"
+		resultType="java.lang.Long">
+		SELECT
+		count(*) as count
+		from 
+		shop_order 
+		WHERE
+		1=1
+		<if test="userId!=null and userId!=''">
+		and	user_id =#{userId}
+		</if>
+		<if test="userId==null or userId==''">
+		and	1=0
+		</if>
+	</select>
+	
+	
+		<!-- 获取订单 -->
+	<select id="getAllOrdersCount" parameterType="com.solstice.bean.OrderDto"
+		resultType="java.lang.Long">
+		SELECT
+		count(*) as count
+		from 
+		shop_order 
+	</select>
+	
+	
+	
+	
+	<delete id="deleteOrder" parameterType="com.solstice.bean.OrderDto">
+		DELETE
+		FROM
+		shop_order
+		WHERE
+    	id =#{id}
+	</delete>
+	
+		
+	
+	<delete id="deleteOrderDetail" parameterType="com.solstice.bean.OrderDto">
+		DELETE
+		FROM
+		shop_order_detail
+		WHERE
+    	order_id =#{id}
+	</delete>
+
+
+
+</mapper>

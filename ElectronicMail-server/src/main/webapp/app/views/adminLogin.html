@@ -1,0 +1,27 @@
+<div class="adminLogin" ng-controller="adminController">
+	<div class="login">
+		<h2>管理员登录</h2>
+		<form  name="adminLoginForm"  ng-submit="submitForm()">
+			<div class="form-group">
+				<label>用户名:</label>
+				<input type="text" 
+					   name="adminName"
+					   ng-model="loginData.id" 
+					   required
+					   class="form-control">	   
+				<p class="error" ng-if="adminLoginForm.adminName.$error.required&&adminLoginForm.adminName.$touched"">用户名不能为空</p>
+			</div>
+			<div class="form-group">
+				<label>密码:</label>
+				<input type="password" 
+					   name="password"
+					   ng-model="loginData.pwd" 
+					   required
+					   class="form-control">
+				
+				<p class="error" ng-if="adminLoginForm.password.$error.required&&adminLoginForm.password.$touched"">密码不能为空</p>
+			</div>
+		</form>
+		<button type="submit" class="btn btn-primary form-control" ng-click="submitForm()">提交</button>
+	</div>
+</div>

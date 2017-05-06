@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.solstice.mapper.ShoppingCarMapper">
+
+	<!-- 加入购物车,返回id -->
+	<insert id="insertCar" useGeneratedKeys="true" keyProperty="id"
+		parameterType="com.solstice.bean.ShoppingCarDto">
+		INSERT INTO shopping_car
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null and userId!=''">
+				user_id,
+			</if>
+			<if test="num != null">
+				num,
+			</if>
+			<if test="goodsId != null">
+				goods_id,
+			</if>
+			create_time,
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null and userId!=''">
+				#{userId},
+			</if>
+			<if test="num != null">
+				#{num},
+			</if>
+			<if test="goodsId != null">
+				#{goodsId},
+			</if>
+			now(),
+		</trim>
+	</insert>
+	<!--更新购物车 -->
+	<update id="updateCar" parameterType="com.solstice.bean.ShoppingCarDto">
+		UPDATE shopping_car
+		SET
+		num=#{num},
+		update_time=now()
+		where id=#{id} and user_id=#{userId} and
+		goods_id=#{goodsId}
+	</update>
+
+
+	<!-- 获取购物车 -->
+	<select id="getShoppingCarList" parameterType="com.solstice.bean.ShoppingCarDto"
+		resultType="com.solstice.bean.ShoppingCar">
+		SELECT
+		sc.id AS id,
+		sc.goods_id AS goodsId,
+		sc.num AS num,
+		sc.num *
+		tg.price AS totalPrice,
+		tg.`name` AS `name`,
+		tg.detail AS detail,
+		tg.price AS price,
+		tg.url AS url,
+		date_format(create_time, '%Y-%m-%d
+		%T') AS createTime,
+		date_format(update_time, '%Y-%m-%d %T') AS
+		updateTime
+		FROM
+		shopping_car sc
+		LEFT OUTER JOIN tb_goods tg ON
+		sc.goods_id = tg.id
+		WHERE
+		1=1
+		<if test="userId!=null and userId!=''">
+			and user_id =#{userId}
+		</if>
+		<if test="userId==null or userId==''">
+			and 1=0
+		</if>
+	</select>
+
+	<delete id="deleteCarGoodsByGdId" parameterType="com.solstice.bean.ShoppingCarDto">
+		DELETE
+		FROM
+		shopping_car
+		WHERE
+		user_id = #{userId}
+		<if test="goodsId!=null and goodsId!=''">
+		AND goods_id = #{goodsId}
+		</if>
+	</delete>
+
+
+	<!-- 获取购物车 -->
+	<select id="getCarGoodsBYGdId" parameterType="com.solstice.bean.ShoppingCarDto"
+		resultType="com.solstice.bean.ShoppingCar">
+		SELECT
+		id AS id,
+		num  AS num
+		FROM
+		shopping_car 
+		WHERE
+		1=1
+		<if test="userId!=null and userId!=''">
+			and user_id =#{userId}
+		</if>
+		<if test="userId==null or userId==''">
+			and 1=0
+		</if>
+		<if test="goodsId!=null and goodsId!=''">
+			and goods_id =#{goodsId}
+		</if>
+		<if test="goodsId==null or goodsId==''">
+			and 1=0
+		</if>
+	</select>
+
+</mapper>

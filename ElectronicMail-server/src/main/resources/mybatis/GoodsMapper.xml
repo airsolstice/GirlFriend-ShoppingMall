@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 定义此xml文件的命名空间，此xml中的ID对应namespace“”中这个接口 -->
+<mapper namespace="com.solstice.mapper.GoodsMapper">
+<!-- 定义数据中字段与JAVA对象的映射关系 -->
+	<resultMap id="goodsMap" type="com.solstice.bean.Goods">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="CHAR" property="name"/>
+        <result column="detail" jdbcType="CHAR" property="detail"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="catalog" jdbcType="INTEGER" property="catalog"/>
+        <result column="url" jdbcType="CHAR" property="url"/>
+        <result column="add_time" jdbcType="DATE" property="addTime"/>
+    </resultMap>
+    <!-- 操作数据库的具体逻辑 -->
+    <select id="getCatalogGoodsSum"  parameterType="int" resultType="int">
+		SELECT COUNT(*) FROM tb_goods WHERE catalog = #{catalog}
+	</select>
+	<select id="getGoodsList" resultMap="goodsMap" >
+		SELECT * FROM tb_goods
+	</select>
+	<select id="getGoodsListByCatalog" resultMap="goodsMap" parameterType="int" >
+		SELECT * FROM tb_goods WHERE catalog = #{catalog}
+	</select>
+	<select id="getCatalogGoodsTop10" resultMap="goodsMap" parameterType="int" >
+		SELECT * FROM tb_goods WHERE catalog = #{catalog} ORDER BY add_time DESC LIMIT 10
+	</select>
+	<select id="getCatalogGoodsPage" resultMap="goodsMap" >
+		SELECT * FROM tb_goods WHERE catalog = #{2} LIMIT #{0},#{1}
+	</select>
+		<select id="getCatalogGoodsTotalRows"  parameterType="int" resultType="java.lang.Long">
+		SELECT count(*) AS count FROM tb_goods WHERE catalog = #{catalog} 
+	</select>
+	<select id="getAllGoods" resultMap="goodsMap" >
+		SELECT * FROM tb_goods  LIMIT #{0},#{1}
+	</select>	
+	<select id="findGoodsByKey"  parameterType="string" resultMap="goodsMap">
+		SELECT * FROM tb_goods WHERE name LIKE CONCAT('%',#{key},'%')
+	</select>	
+	<insert id="addGoods" parameterType="com.solstice.bean.Goods">
+		INSERT INTO tb_goods (name,detail,price,catalog,url,add_time) values
+		(#{name},#{detail},#{price},#{catalog},#{url},#{addTime})
+	</insert>
+	<delete id="deleteGoods" parameterType="int" >
+		DELETE FROM tb_goods WHERE id = #{id}
+	</delete>
+	<update id="updateName" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods SET name = #{name} WHERE id = #{id}
+	</update>
+	<update id="updateDetail" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods SET detail = #{detail} WHERE id = #{id}
+	</update>
+	<update id="updatePrice" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods SET price = #{price} WHERE id = #{id}
+	</update>
+	<update id="updateCatalog" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods SET catalog = #{catalog} WHERE id = #{id}
+	</update>
+	<update id="updateUrl" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods SET url = #{url} WHERE id = #{id}
+	</update>
+	<update id="updateGoods" parameterType="com.solstice.bean.Goods">
+		UPDATE tb_goods 
+      SET	
+		url= #{url},
+	    catalog= #{catalog},
+		price= #{price},
+		detail= #{detail},
+		name= #{name}						
+		 WHERE id = #{id}
+	</update>
+</mapper>

@@ -1,0 +1,29 @@
+
+<!-- 	商品内容区 -->
+	<div  class="new_shopping">
+		
+			<div class="new_shopping_list" ng-controller="MainCtrl_new_shopping">
+				<div class="tab_content">
+					<ul>
+						<li class="goodList" ng-repeat="item in goods">
+							<div   ng-click="toDetail(item)">
+								<div class="good_img">
+									<a><img src={{item.url[0]}}></a>
+								</div>
+								<h3 class="good_desc">
+									<a>
+										{{item.detail}}
+									</a>
+								</h3>
+								<div class="good_price">
+									<span class="now">￥ {{item.price}}</span>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="pagerWrapper">
+						<pager page-count="pageCount" current-page="currentPage" on-page-change="onPageChange()"></pager>
+					</div>
+				</div>
+			</div>
+	</div>

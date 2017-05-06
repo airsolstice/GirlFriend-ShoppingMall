@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/* line 1, ../../app/styles/order_list.scss */
+.order_list {
+  margin: 60px 100px;
+}
+/* line 3, ../../app/styles/order_list.scss */
+.order_list .order_addr {
+  width: 100%;
+}
+/* line 5, ../../app/styles/order_list.scss */
+.order_list .order_addr .panel-heading {
+  outline: none;
+}
+/* line 8, ../../app/styles/order_list.scss */
+.order_list .order_addr .error {
+  color: red;
+}
+/* line 11, ../../app/styles/order_list.scss */
+.order_list .order_addr .panel-body.order_addr_body {
+  margin: 　40px 0;
+}
+/* line 13, ../../app/styles/order_list.scss */
+.order_list .order_addr .panel-body.order_addr_body label {
+  font-weight: 400;
+  font-family: '微软雅黑';
+}
+/* line 17, ../../app/styles/order_list.scss */
+.order_list .order_addr .panel-body.order_addr_body .btn-save {
+  background: #eee;
+  color: #818181;
+  border: none;
+  letter-spacing: 20px;
+  font-weight: 500;
+}
+/* line 26, ../../app/styles/order_list.scss */
+.order_list .order_info {
+  height: 400px;
+  margin-top: 100px;
+}
+/* line 29, ../../app/styles/order_list.scss */
+.order_list .order_info .title {
+  margin-bottom: 50px;
+}
+/* line 34, ../../app/styles/order_list.scss */
+.order_list .order_info .order_info_content .tit .col-sm-6 {
+  border-bottom: 2px solid rgba(45, 167, 224, 0.35);
+  text-align: center;
+}
+/* line 37, ../../app/styles/order_list.scss */
+.order_list .order_info .order_info_content .tit .col-sm-6 p {
+  margin-bottom: 0;
+  color: rgba(45, 167, 224, 0.35);
+  font-size: 20px;
+  font-weight: 600;
+}
+/* line 46, ../../app/styles/order_list.scss */
+.order_list .order_info .order_info_content .con .col-sm-6 {
+  text-align: center;
+  height: 100px;
+  line-height: 100px;
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 30px;
+}
+/* line 53, ../../app/styles/order_list.scss */
+.order_list .order_info .order_info_content .con .baby_desc {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #818181;
+}
+/* line 59, ../../app/styles/order_list.scss */
+.order_list .order_info .order_info_content .con .baby_price {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FF6666;
+}
+/* line 66, ../../app/styles/order_list.scss */
+.order_list .order_info .order_submit {
+  border: 1px solid #ccc;
+  text-align: right;
+}
+/* line 69, ../../app/styles/order_list.scss */
+.order_list .order_info .order_submit span {
+  font-weight: 700;
+  font-size: 24px;
+  color: #FF6666;
+}
+/* line 75, ../../app/styles/order_list.scss */
+.order_list .order_info .btn-sure {
+  background-color: #FF6666;
+  border-radius: 0;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 10px;
+  outline: none;
+}
+
+/* line 86, ../../app/styles/order_list.scss */
+.message {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  font-size: 30px;
+}
+/* line 91, ../../app/styles/order_list.scss */
+.message label {
+  color: #4CAF50;
+  margin-right: 30px;
+}
